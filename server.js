@@ -1,8 +1,13 @@
 const express = require ('express');
 const connectDB = require ('./config/db');
 
-connectDB ();
 const app = express ();
+
+// Connect to Database
+connectDB ();
+
+// Parse JSON in Request Body
+app.use (express.json ({extended: false}));
 
 app.get ('/', (req, res) => res.send ('API Running'));
 
